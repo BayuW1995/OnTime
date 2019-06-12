@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -40,6 +41,7 @@ public class ApprovalCuti extends AppCompatActivity {
 	private DialogGagal dialogGagal;
 	private DialogDataTidakDitemukan dialogDataTidakDitemukan;
 	private LinearLayout tableApprovalCuti;
+	private TextView txtKosong;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,7 @@ public class ApprovalCuti extends AppCompatActivity {
 	}
 
 	private void initUI() {
+		txtKosong = (TextView) findViewById(R.id.txtKosongAppCuti);
 		listView = (ListView) findViewById(R.id.lvApprovalCuti);
 		tableApprovalCuti = (LinearLayout) findViewById(R.id.tableApprovalCuti);
 	}
@@ -105,6 +108,7 @@ public class ApprovalCuti extends AppCompatActivity {
 									isi.getString("id")
 							));
 						}
+						txtKosong.setVisibility(View.GONE);
 						listView.setAdapter(null);
 						adapter = new ListAdapterApprovalCuti(ApprovalCuti.this, list);
 						listView.setAdapter(adapter);

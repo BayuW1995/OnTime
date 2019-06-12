@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -40,20 +41,33 @@ public class ApprovalIjin extends AppCompatActivity {
 	private DialogGagal dialogGagal;
 	private DialogDataTidakDitemukan dialogDataTidakDitemukan;
 	private LinearLayout tableApprovalIjin;
+	private TextView txtKosong;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_approval_ijin);
+
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setTitle("Approval Ijin");
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setElevation(0);
+
 		proses = new Proses(ApprovalIjin.this);
 		LayoutInflater li = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		footerList = li.inflate(R.layout.footer_list, null);
+
+		initUI();
+		initAction();
+	}
+
+	private void initUI() {
+		txtKosong = (TextView) findViewById(R.id.txtKosongAppIjin);
 		listView = (ListView) findViewById(R.id.lvApprovalIjin);
 		tableApprovalIjin = (LinearLayout) findViewById(R.id.tableApprovalIjin);
+	}
+
+	private void initAction() {
 		prepareDataApprovalIjin();
 	}
 
@@ -97,6 +111,7 @@ public class ApprovalIjin extends AppCompatActivity {
 									isi.getString("id")
 							));
 						}
+						txtKosong.setVisibility(View.GONE);
 						listView.setAdapter(null);
 						adapter = new ListAdapterApprovalIjin(ApprovalIjin.this, list);
 						listView.setAdapter(adapter);

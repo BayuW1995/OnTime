@@ -361,7 +361,7 @@ public class GetLocationAndShowMap {
 				googleMap.clear();
 				googleMap.addMarker(new MarkerOptions()
 						.anchor(0.0f, 1.0f)
-						.draggable(true)
+						.draggable(false)
 						.position(new LatLng(latitude, longitude)));
 
 				if (ActivityCompat.checkSelfPermission(((Activity) context), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

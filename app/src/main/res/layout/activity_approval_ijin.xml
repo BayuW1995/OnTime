@@ -7,12 +7,14 @@
     tools:context=".menu_approval_cuti.ApprovalCuti">
 
     <TextView
+        android:id="@+id/txtKosongAppIjin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="KOSONG"
         android:textColor="#ababab"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/tableApprovalIjin"
